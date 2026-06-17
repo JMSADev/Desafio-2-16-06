@@ -9,9 +9,15 @@ function pesquisar(){
 
     for(let i = 1; i <= 20; i++){
 
-        let nome = prompt("Nome");
-        let idade = Number(prompt("Idade"));
-        let sexo = prompt("Sexo M/F");
+        let nome = prompt(`Nome da pessoa ${i}:`);
+
+        let idade = Number(
+            prompt(`Idade de ${nome}:`)
+        );
+
+        let sexo = prompt(
+            `Sexo de ${nome} (M/F):`
+        ).toUpperCase();
 
         if(idade < 18){
             menores18++;
@@ -25,21 +31,21 @@ function pesquisar(){
             entre18e64++;
         }
 
-        if(sexo.toUpperCase() === "M"){
+        if(sexo === "M"){
             masculino++;
         }
 
-        if(sexo.toUpperCase() === "F"){
+        if(sexo === "F"){
             feminino++;
         }
 
     }
 
     document.getElementById("resultado").innerHTML = `
-        Menores de 18: ${menores18}<br>
-        Maiores de 65: ${maiores65}<br>
-        Entre 18 e 64: ${entre18e64}<br>
-        Masculino: ${masculino}<br>
-        Feminino: ${feminino}
+        <p>Menores de 18 anos: ${menores18}</p>
+        <p>Maiores de 65 anos: ${maiores65}</p>
+        <p>Entre 18 e 64 anos: ${entre18e64}</p>
+        <p>Masculino: ${masculino}</p>
+        <p>Feminino: ${feminino}</p>
     `;
 }
